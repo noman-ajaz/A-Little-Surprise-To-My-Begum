@@ -1,0 +1,530 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Little Universe Called Rubab ❤️</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --red: #e63950;
+    --gold: #d9ad72;
+    --white: #fff0e9;
+}
+
+body {
+    background: #080507;
+    color: var(--white);
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
+
+#particles {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.particle {
+    position: absolute;
+    bottom: -30px;
+    animation: rise linear forwards;
+    opacity: 0;
+}
+
+@keyframes rise {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    20% { opacity: .8; }
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+section {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 35px 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.content {
+    max-width: 650px;
+    width: 100%;
+    text-align: center;
+}
+
+.small-title {
+    color: var(--gold);
+    letter-spacing: 5px;
+    font-size: 11px;
+    text-transform: uppercase;
+}
+
+h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(48px, 10vw, 85px);
+    font-weight: 500;
+    color: var(--gold);
+    margin: 20px 0;
+}
+
+.script {
+    font-family: 'Great Vibes', cursive;
+    color: #ef7185;
+    font-size: clamp(40px, 9vw, 65px);
+}
+
+p {
+    color: #c9b7b7;
+    font-size: 14px;
+    line-height: 2;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 14px 35px;
+    border: 1px solid var(--gold);
+    border-radius: 40px;
+    color: var(--gold);
+    background: transparent;
+    cursor: pointer;
+    font-family: inherit;
+    letter-spacing: 1px;
+    transition: .4s;
+}
+
+.btn:hover {
+    background: var(--red);
+    border-color: var(--red);
+    color: white;
+    box-shadow: 0 0 30px #e6395066;
+    transform: translateY(-4px);
+}
+
+.heart {
+    font-size: 65px;
+    animation: heartbeat 1.4s infinite;
+}
+
+@keyframes heartbeat {
+    50% { transform: scale(1.2); }
+}
+
+.hidden {
+    display: none !important;
+}
+
+.envelope {
+    width: 220px;
+    height: 145px;
+    background: linear-gradient(135deg,#a91e35,#e75a70);
+    margin: 40px auto;
+    position: relative;
+    border-radius: 8px;
+    display: grid;
+    place-items: center;
+    font-size: 55px;
+    box-shadow: 0 0 40px #e6395044;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.envelope:hover {
+    transform: scale(1.08);
+}
+
+.letter {
+    background: linear-gradient(145deg,#1c1115,#29131b);
+    border: 1px solid #b88b62;
+    border-radius: 18px;
+    padding: 35px 25px;
+    margin-top: 25px;
+    box-shadow: 0 0 40px #e6395020;
+    animation: appear 1s ease;
+}
+
+@keyframes appear {
+    from {opacity:0; transform:translateY(30px);}
+    to {opacity:1; transform:translateY(0);}
+}
+
+.letter p {
+    margin: 15px 0;
+    font-family: 'Cormorant Garamond',serif;
+    font-size: 21px;
+    color: #e8d4d0;
+}
+
+.photo {
+    width: 220px;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 120px 120px 20px 20px;
+    border: 2px solid var(--gold);
+    padding: 6px;
+    box-shadow: 0 0 35px #d9ad7244;
+    margin: 30px auto;
+}
+
+.divider {
+    width: 70px;
+    height: 1px;
+    background: var(--gold);
+    margin: 25px auto;
+}
+
+.memory {
+    border: 1px solid #69414b;
+    padding: 25px;
+    border-radius: 15px;
+    margin: 20px 0;
+    background: #170e12;
+}
+
+.memory h3 {
+    color: var(--gold);
+    font-family: 'Cormorant Garamond',serif;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+#finalMessage {
+    color: #f1a3ae;
+    font-family: 'Great Vibes',cursive;
+    font-size: 43px;
+    margin-top: 25px;
+}
+
+.music {
+    position: fixed;
+    top: 18px;
+    right: 18px;
+    z-index: 10;
+    background: #241017;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    padding: 10px 15px;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+footer {
+    color: #97777c;
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-top: 35px;
+}
+
+@media(max-width:480px) {
+    .letter {padding: 25px 18px;}
+    .letter p {font-size: 19px;}
+}
+</style>
+</head>
+
+<body>
+
+<div id="particles"></div>
+
+<button class="music" onclick="toggleMusic()" id="musicBtn">
+    ♫ Play Music
+</button>
+
+<audio id="music">
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<!-- FIRST PAGE -->
+
+<section id="home">
+<div class="content">
+
+    <div class="small-title">A Special Surprise For You</div>
+
+    <div class="heart">❤️</div>
+
+    <h1>My Universe</h1>
+
+    <div class="script">Rubab</div>
+
+    <div class="divider"></div>
+
+    <p>
+        Somewhere between all the stars in this universe,
+        my heart found its favourite person.
+    </p>
+
+    <button class="btn" onclick="startSurprise()">
+    Open Your Surprise ❤️
+</button>
+
+    <footer>MADE WITH LOVE BY NOMAN</footer>
+
+</div>
+</section>
+
+
+<!-- LOVE LETTER PAGE -->
+
+<section id="letterPage" class="hidden">
+<div class="content">
+
+    <div class="small-title">A Letter From My Heart</div>
+
+    <h1>For You</h1>
+
+    <p>There are some things I wish I could say while holding your hand.</p>
+
+    <div class="envelope" onclick="openLetter()" id="envelope">
+        💌
+    </div>
+
+    <p id="envelopeHint">Touch the envelope to open your letter.</p>
+
+    <div class="letter hidden" id="letter">
+
+        <div class="script">My Dearest Rubab,</div>
+
+        <p>
+            I know I haven't always handled things perfectly.
+            Sometimes my words or actions may have hurt you,
+            and for that, I'm truly sorry.
+        </p>
+
+        <p>
+            If I could rewrite one moment,
+            I would choose the moment I made you sad.
+        </p>
+
+        <p>
+            I don't want a perfect relationship.
+            I want something real, something honest,
+            and something that we both keep choosing.
+        </p>
+
+        <p>
+            I cannot promise that I'll never make mistakes,
+            but I can promise to keep learning,
+            listening and loving you better.
+        </p>
+
+        <div class="script">I'm truly sorry, my love. ❤️</div>
+
+        <p>Forever yours,<br>Noman</p>
+
+    </div>
+
+    <button class="btn" onclick="nextPage('photoPage')">
+        One More Surprise →
+    </button>
+
+</div>
+</section>
+
+
+<!-- PICTURE PAGE -->
+
+<section id="photoPage" class="hidden">
+<div class="content">
+
+    <div class="small-title">My Favourite Person</div>
+
+    <h1>Your Smile</h1>
+
+    <!-- ADD RUBAB'S PHOTO IN THE SAME FOLDER -->
+    <img src="rubab.jpg" class="photo" alt="My Rubab">
+
+    <div class="script">You Are My Favourite</div>
+
+    <p>
+        In a world full of temporary things,
+        you're someone I want to keep choosing.
+    </p>
+
+    <div class="divider"></div>
+
+    <p>
+        Your smile is precious to me.
+        Your happiness matters to me.
+        And your heart deserves gentleness.
+    </p>
+
+    <button class="btn" onclick="nextPage('finalPage')">
+        The Last Surprise ❤️
+    </button>
+
+</div>
+</section>
+
+
+<!-- FINAL PAGE -->
+
+<section id="finalPage" class="hidden">
+<div class="content">
+
+    <div class="heart">❤️</div>
+
+    <div class="small-title">One Question, Princess</div>
+
+    <h1>Can We Be Okay Again?</h1>
+
+    <p>
+        I don't need a perfect day.
+        I just want to see you smile again.
+    </p>
+
+    <div id="finalMessage">
+        I choose you. Always.
+    </div>
+
+    <div class="divider"></div>
+
+    <button class="btn" onclick="forgive()">
+        A Big Hug For You 
+    </button>
+
+    <button class="btn" onclick="forgive()">
+        I Love You Too ❤️
+    </button>
+
+    <footer>IN EVERY UNIVERSE, IT'S YOU.</footer>
+
+</div>
+</section>
+
+
+<script>
+
+function nextPage(id) {
+
+    document.querySelectorAll("section").forEach(section => {
+        section.classList.add("hidden");
+    });
+
+    document.getElementById(id).classList.remove("hidden");
+
+    window.scrollTo(0,0);
+}
+
+function openLetter() {
+
+    document.getElementById("letter").classList.remove("hidden");
+
+    document.getElementById("envelopeHint").innerHTML =
+    "A little piece of my heart, just for you. ❤️";
+
+    document.getElementById("envelope").innerHTML = "💗";
+}
+
+function forgive() {
+
+    document.getElementById("finalMessage").innerHTML =
+    "I Love You, Rubab! ❤️🥺";
+
+    for(let i=0; i<40; i++) {
+        createParticle();
+    }
+}
+
+function toggleMusic() {
+
+    let music = document.getElementById("music");
+    let btn = document.getElementById("musicBtn");
+
+    if(music.paused) {
+
+        music.play().then(() => {
+            btn.innerHTML = "♫ Pause Music";
+        }).catch(() => {
+            btn.innerHTML = "Music unavailable";
+        });
+
+    } else {
+
+        music.pause();
+        btn.innerHTML = "♫ Play Music";
+    }
+}
+
+function createParticle() {
+
+    let p = document.createElement("div");
+
+    p.className = "particle";
+
+    let symbols = ["❤️","💕","🌹","✨","♡"];
+
+    p.innerHTML = symbols[
+        Math.floor(Math.random()*symbols.length)
+    ];
+
+    p.style.left = Math.random()*100 + "vw";
+
+    p.style.animationDuration =
+    (4 + Math.random()*5) + "s";
+
+    p.style.fontSize =
+    (15 + Math.random()*20) + "px";
+
+    document.getElementById("particles").appendChild(p);
+
+    setTimeout(() => p.remove(),9000);
+}
+
+function startSurprise() {
+
+    let music = document.getElementById("music");
+
+    music.play().catch(error => {
+        console.log("Music could not start:", error);
+    });
+
+    document.getElementById("musicBtn").innerHTML =
+        "♫ Pause Music";
+
+    nextPage('letterPage');
+}
+
+function startSurprise() {
+    let music = document.getElementById("music");
+
+    music.currentTime = 70;
+
+    music.ontimeupdate = function () {
+        if (music.currentTime >= 185) {
+            music.pause();
+            music.ontimeu0pdate = null;
+        }
+    };
+
+    music.play();
+
+    document.getElementById("musicBtn").innerHTML = "♫ Pause Music";
+
+    nextPage('letterPage');
+}
+
+setInterval(createParticle,500);
+
+</script>
+
+</body>
+</html>
